@@ -8,27 +8,22 @@
 int try_rx(FILE *ftf)
 {
 	char *txt = NULL;
+	char *word = NULL;
 	size_t size_buffer = 0;
 	int nLine = 0;
-	stack_t *stack_head;
-	char *word = NULL;
-	int nch = 0;
+	stack_t *stack_head = NULL;
 	void (*f)(stack_t **stack, unsigned int line_number) = NULL;
+	int nch = 0;
 
-	while ((nch = getline(&txt, &size_buffer, ftf)) > 0)
+	while ((nch = getline(&txt, &size_buffer, ftf)) != -1)
 	{
 		nLine++;
-		/*printf("characters: %d\n", nch);
-		printf("reading new line\n");
-		printf("line: %s", txt);*/
-		/*printf("%s", word);*/
 		word = strtok(txt, " \t\n");
 		if (word != NULL && word[0] != '#')
 		{
-			printf("here");
 			f = find_op(word, nLine);
-			*value_item = strtok(NULL, " \t\n");
-			f(&stack_head, nLine);
+			if (f)
+				f(&stack_head, nLine);
 		}
 		/*dont forget free of stack_head*/
 	}
