@@ -15,7 +15,9 @@ int can_read(FILE *ftf)
 	while (getline(&txt, &size_buffer, ftf) > 0)
 	{
 		nLine++;
-		word = strtok(txt, " \t\n");
+		printf("reading new line\n");
+		word= strtok(txt, " \t\n");
+		printf("here");
 		f = find_op(word, nLine);
 		*value_item = strtok(NULL, " \t\n");
 		f(&stack_head, nLine);

@@ -10,7 +10,7 @@ void push_k(stack_t **stack, unsigned int line_number)
 {
 	stack_t *n_n = malloc(sizeof(stack_t));
 	stack_t *c_n = *stack;
-
+	printf("funcion push_k ejecutada\n");
 	if (n_n == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
