@@ -23,6 +23,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
-	can_read(focus_to_file);
+	try_rx(focus_to_file);
 	return (EXIT_SUCCESS);
 }
