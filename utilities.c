@@ -10,7 +10,7 @@ void (*find_op(char *command, unsigned int line_number))(stack_t **stack,
 	unsigned int line_number)
 {
 	int pos;
-	instruction_t get_op[] = {
+	instruction_t list_op[] = {
 		{"push", push_k},
 		{"pall", pall_k},
 		{"pint", pint_k},
@@ -20,10 +20,10 @@ void (*find_op(char *command, unsigned int line_number))(stack_t **stack,
 		{"nop", nop_k},
 		{NULL, NULL}
 	};
-	for (pos = 0; get_op[pos].opcode; pos++)
+	for (pos = 0; list_op[pos].opcode; pos++)
 	{
-		if (strcmp(command, get_op[pos].opcode) == 0)
-			return (get_op[pos].f);
+		if (strcmp(command, list_op[pos].opcode) == 0)
+			return (list_op[pos].f);
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 		line_number,

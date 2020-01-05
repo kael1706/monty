@@ -10,27 +10,30 @@ void push_k(stack_t **stack, unsigned int line_number)
 {
 	stack_t *n_n = malloc(sizeof(stack_t));
 	stack_t *c_n = *stack;
+	char *prm = NULL;
 
-	printf("funcion push_k ejecutada\n");
+	prm = strtok(NULL, " \t\n");
+	printf("%s\n\n", prm);
 	if (n_n == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (value_item[1] == NULL)
+	if (prm == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(n_n);
 		exit(EXIT_FAILURE);
 	}
-	n_n->n = atoi(*value_item);
+	n_n->n = atoi(prm);
 	n_n->prev = NULL;
+	n_n->next = NULL;
 	if (c_n)
 	{
 		n_n->next = c_n;
 		c_n->prev = n_n;
 	}
-	c_n = n_n;
+	*stack = n_n;
 }
 
 /**
@@ -44,10 +47,16 @@ void pall_k(stack_t **stack, unsigned int line_number)
 {
 	stack_t *c_n = *stack;
 	(void) line_number;
-
+	
+	printf("i am in functionn pall\n");
+	if (c_n == NULL)
+	{
+		printf("current node is null\n");
+	}
 	while (c_n)
 	{
-		/*printf("%d\n", c_n->n);*/
+		printf("inside");
+		printf("%d\n", c_n->n);
 		c_n = c_n->next;
 	}
 }
