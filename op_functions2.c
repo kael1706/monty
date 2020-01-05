@@ -8,21 +8,8 @@
  */
 void swap_k(stack_t **stack, unsigned int line_number)
 {
-	stack_t *t_s = *stack;
-
-	if (*stack == NULL || *stack->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free_s(*stack);
-		exit(EXIT_FAILURE);
-	}
-	*stack = *stack->next;
-	*stack->prev = NULL;
-	if (*stack->next != NULL)
-		*stack->next->prev = t_s;
-	t_s->next = *stack->next;
-	*stack->next = t_s;
-	t_s->prev = *stack;
+	(void) stack;
+	(void) line_number;
 }
 
 
