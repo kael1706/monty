@@ -2,13 +2,13 @@
 
 char **value_item = NULL;
 /**
-* main - 
-* @argc: 
-* @argv: 
-* Return:
+* main - core of program
+* @argc: count of args
+* @argv: args
+* Return: EXIT_SUCCESS | EXIT_FAILURE
 */
 int main(int argc, char *argv[])
-{	
+{
 	FILE *focus_to_file;
 
 	if (argc != 2)

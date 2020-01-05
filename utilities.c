@@ -1,14 +1,15 @@
 #include "monty.h"
 
 /**
- * get_op -
- * @opcode:
+ * find_op - manage operations according to the command
+ * @command: command of monty file
+ * @line_number: position command
  * Return: void
  */
-void (*find_op(char *command, unsigned int line_number))
-(stack_t **stack, unsigned int line_number)
+void (*find_op(char *command, unsigned int line_number))(stack_t **stack,
+	unsigned int line_number)
 {
-	int pos;	
+	int pos;
 	instruction_t get_op[] = {
 		{"push", push_k},
 		{"pall", pall_k},

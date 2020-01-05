@@ -60,5 +60,5 @@ void swap_k(stack_t **stack, unsigned int line_number);
 void add_k(stack_t **stack, unsigned int line_number);
 void nop_k(stack_t **stack, unsigned int line_number);
 
-int can_read(FILE *ftf);
+int try_rx(FILE *ftf);
 #endif
