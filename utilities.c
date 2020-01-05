@@ -42,7 +42,7 @@ void free_s(stack_t *s_h)
 
 	while (s_h != NULL)
 	{
-		s_t = stack_h->next;
+		s_t = s_h->next;
 		free(s_h);
 		s_h = s_t;
 	}

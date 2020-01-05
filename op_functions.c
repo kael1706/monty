@@ -11,11 +11,13 @@ void push_k(stack_t **stack, unsigned int line_number)
 	stack_t *n_n = malloc(sizeof(stack_t));
 	stack_t *c_n = *stack;
 	char *prm = NULL;
+	size_t nch = 0, j = 0;
 
 	prm = strtok(NULL, " \t\n");
 	if (n_n == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_s(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (prm == NULL)
@@ -23,6 +25,17 @@ void push_k(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(n_n);
 		exit(EXIT_FAILURE);
+	}
+
+	nch = strlen(prm);
+	for (j = 0; j < nch; j++)
+	{
+		if (!isdigit(prm[j]) && prm[0] != '-')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free_s(*stack);
+			exit(EXIT_FAILURE);
+		}
 	}
 	n_n->n = atoi(prm);
 	n_n->prev = NULL;

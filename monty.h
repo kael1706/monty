@@ -5,11 +5,12 @@
  *stdio.h: fopen(), FILE, getline()
  *string.h: strtok(), strchr()
  *stdlib.h: EXIT_SUCCESS, EXIT_FAILURE.
+ *ctype.h: isdigit(), unsigned char
  */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,7 +41,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void (*find_op(char *command, unsigned int line_number));
+void (*find_op(char *command, unsigned int line_number))
 	(stack_t **stack, unsigned int line_number);
 void push_k(stack_t **stack, unsigned int line_number);
 void pall_k(stack_t **stack, unsigned int line_number);
