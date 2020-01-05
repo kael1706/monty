@@ -28,5 +28,8 @@ int try_rx(FILE *ftf)
 		/*dont forget free of stack_head*/
 	}
 
+	stack_head = NULL;
+	free(txt);
+	fclose(ftf);
 	return (EXIT_SUCCESS);
 }
