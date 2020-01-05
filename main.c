@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char **value_item = NULL;
+
 /**
 * main - core of program
 * @argc: count of args

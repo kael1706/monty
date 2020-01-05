@@ -11,16 +11,6 @@
 #include <stdlib.h>
 
 /**
- * struct u_storage - struct of universal variables
- */
-typedef struct u_storage_s
-{
-	int *count;
-} u_storage_t;
-
-extern char **value_item;
-char** define_g(void);
-/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -50,7 +40,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void (*find_op(char *command, unsigned int line_number))
+void (*find_op(char *command, unsigned int line_number));
 	(stack_t **stack, unsigned int line_number);
 void push_k(stack_t **stack, unsigned int line_number);
 void pall_k(stack_t **stack, unsigned int line_number);
@@ -59,6 +49,8 @@ void pint_k(stack_t **stack, unsigned int line_number);
 void swap_k(stack_t **stack, unsigned int line_number);
 void add_k(stack_t **stack, unsigned int line_number);
 void nop_k(stack_t **stack, unsigned int line_number);
+
+void free_s(stack_t *s_h);
 
 int try_rx(FILE *ftf);
 #endif

@@ -30,3 +30,21 @@ void (*find_op(char *command, unsigned int line_number))(stack_t **stack,
 		command);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * free_s - free the stack
+ * @s_h: stack head
+ * Return: void
+ */
+void free_s(stack_t *s_h)
+{
+	stack_t *s_t;
+
+	while (s_h != NULL)
+	{
+		s_t = stack_h->next;
+		free(s_h);
+		s_h = s_t;
+	}
+}
+
