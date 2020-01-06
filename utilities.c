@@ -18,6 +18,7 @@ void (*find_op(char *command, unsigned int line_number))(stack_t **stack,
 		{"swap", swap_k},
 		{"add", add_k},
 		{"nop", nop_k},
+		{"sub", sub_k},
 		{NULL, NULL}
 	};
 	for (pos = 0; list_op[pos].opcode; pos++)

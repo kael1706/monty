@@ -50,6 +50,7 @@ void pint_k(stack_t **stack, unsigned int line_number);
 void swap_k(stack_t **stack, unsigned int line_number);
 void add_k(stack_t **stack, unsigned int line_number);
 void nop_k(stack_t **stack, unsigned int line_number);
+void sub_k(stack_t **stack, unsigned int line_number);
 
 void free_s(stack_t *s_h);
 
