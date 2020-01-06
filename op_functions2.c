@@ -34,8 +34,16 @@ void swap_k(stack_t **stack, unsigned int line_number)
  */
 void add_k(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
-	(void) line_number;
+	stack_t *t_s = *stack;
+
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	t_s->next->n = t_s->next->n + t_s->n;
+	pop_k(&(*stack), 1);
 }
 
 
